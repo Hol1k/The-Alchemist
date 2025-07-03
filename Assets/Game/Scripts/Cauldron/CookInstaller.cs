@@ -1,6 +1,5 @@
 using Game.Scripts.Cauldron;
 using Game.Scripts.Ingredients;
-using UnityEngine;
 using Zenject;
 
 public class CookInstaller : MonoInstaller

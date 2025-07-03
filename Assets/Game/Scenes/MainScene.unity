@@ -8372,6 +8372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookButton: {fileID: 606207330}
+  resultLabel: {fileID: 326185333}
+  resultShowTime: 3
 --- !u!1 &1358052662
 GameObject:
   m_ObjectHideFlags: 0
