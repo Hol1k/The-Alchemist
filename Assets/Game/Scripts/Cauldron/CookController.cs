@@ -40,7 +40,7 @@ namespace Game.Scripts.Cauldron
             IsCookButtonActive = false;
 
             _currResultShowTime = resultShowTime;
-            resultLabel.text = $"Результат: \n {_possiblePotions[Random.Range(0, 3)]}";
+            resultLabel.text = $"Результат:\n{_possiblePotions[Random.Range(0, 3)]}";
         }
 
         private void ResultShowTimer()

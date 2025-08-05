@@ -12,6 +12,7 @@ namespace Game.Scripts.Ingredients
         
         [SerializeField] private bool developmentMode = false;
         [SerializeField] private float spawnOffsetY = -0.1f;
+        [SerializeField] private float movingUpOffset = 0.7f;
         
         [SerializeField] private GameObject ingredientPrefab;
         
@@ -59,9 +60,9 @@ namespace Game.Scripts.Ingredients
             
             Sequence sequence = DOTween.Sequence();
             
-            sequence.Append(ingredientTransform.DOMove(ingredientTransform.position + Vector3.up * 0.3f, 0.5f));
-            sequence.Append(ingredientTransform.DOMoveX(moveTarget.position.x, 1));
-            sequence.Join(ingredientTransform.DOMoveZ(moveTarget.position.z, 1));
+            sequence.Append(ingredientTransform.DOMove(ingredientTransform.position + Vector3.up * movingUpOffset, movingUpOffset));
+            sequence.Append(ingredientTransform.DOMoveX(moveTarget.position.x, 0.7f));
+            sequence.Join(ingredientTransform.DOMoveZ(moveTarget.position.z, 0.7f));
             sequence.Append(ingredientTransform.DOMove(moveTarget.position, 1f));
             
             sequence.OnComplete(() =>
