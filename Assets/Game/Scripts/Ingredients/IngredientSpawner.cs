@@ -58,11 +58,15 @@ namespace Game.Scripts.Ingredients
         {
             var ingredientTransform = Instantiate(ingredientPrefab, transform.position + Vector3.up * spawnOffsetY, Quaternion.identity).transform;
             
+            var ingredientEndPos = new Vector2(Random.Range(-.1f, .1f), Random.Range(-.1f, .1f));
+            ingredientEndPos.x += moveTarget.position.x;
+            ingredientEndPos.y += moveTarget.position.z;
+            
             Sequence sequence = DOTween.Sequence();
             
             sequence.Append(ingredientTransform.DOMove(ingredientTransform.position + Vector3.up * movingUpOffset, movingUpOffset));
-            sequence.Append(ingredientTransform.DOMoveX(moveTarget.position.x, 0.7f));
-            sequence.Join(ingredientTransform.DOMoveZ(moveTarget.position.z, 0.7f));
+            sequence.Append(ingredientTransform.DOMoveX(ingredientEndPos.x, 0.7f));
+            sequence.Join(ingredientTransform.DOMoveZ(ingredientEndPos.y, 0.7f));
             sequence.Append(ingredientTransform.DOMove(moveTarget.position, 1f));
             
             sequence.OnComplete(() =>
